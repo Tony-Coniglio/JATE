@@ -16,8 +16,8 @@ const initdb = async () =>
 export const putDb = async (id, value) => {
 
 const tEDb = await openDB('jate', 1);
-const transact = tEDb.transaction('jate', readwrite);
-const objectStorage = transact.objectStorage('jate');
+const tx = tEDb.transaction('jate', 'readwrite');
+const objectStorage = tx.objectStorage('jate');
 const request = objectStorage.put({id: id, value: value});
 const response = await request;
 console.log('saved to the db', response)
@@ -30,8 +30,8 @@ console.log('saved to the db', response)
 export const getDb = async (value) => {
   
   const tEDb = await openDB('jate', 1);
-  const transact = tEDb.transaction('jate', readwrite);
-  const objectStorage = transact.objectStorage('jate');
+  const tx = tEDb.transaction('jate', 'readwrite');
+  const objectStorage = tx.objectStorage('jate');
   const request = objectStorage.getAll();
   const response = await request;
   console.log('saved to the db', response);
