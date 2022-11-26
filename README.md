@@ -12,3 +12,4 @@ MIT
 
 ## Deployed Link
 
+https://jate-thc.herokuapp.com/
